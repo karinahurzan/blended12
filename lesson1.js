@@ -26,19 +26,58 @@ function requestNumber() {
 // Виведіть в alert відповідне повідомлення, наприклад:
 // "10 входить в першу чверть"
 
-const min = Number(prompt("Введіть число від 0 до 59"));
+// const min = Number(prompt("Введіть число від 0 до 59"));
 
-function getQuarter(min) {
-  if (min >= 0 && min <= 14) {
-    alert(`${min} входить у першу чверть`);
-  } else if (min >= 15 && min <= 29) {
-    alert(`${min} входить у другу чверть`);
-  } else if (min >= 30 && min <= 44) {
-    alert(`${min} входить у третю чверть`);
-  } else if (min >= 45 && min <= 59) {
-    alert(`${min} входить у четверту чверть`);
-  } else {
-    alert("Ви ввели не вірне значення");
-  }
+// function getQuarter(min) {
+//   if (min >= 0 && min <= 14) {
+//     alert(`${min} входить у першу чверть`);
+//   } else if (min >= 15 && min <= 29) {
+//     alert(`${min} входить у другу чверть`);
+//   } else if (min >= 30 && min <= 44) {
+//     alert(`${min} входить у третю чверть`);
+//   } else if (min >= 45 && min <= 59) {
+//     alert(`${min} входить у четверту чверть`);
+//   } else {
+//     alert("Ви ввели не вірне значення");
+//   }
+// }
+// getQuarter(min);
+
+// Змінна num може набувати 4 значення: '1', '2', '3' або '4'
+// (запитуй це значення у користувача через prompt).
+// Якщо вона має значення '1', то у змінну result запишіть 'зима',
+// якщо має значення '2' - 'весна' і так далі.
+// Розв'яжіть завдання через switch-case.
+// Не забудьте про дефолтне значення, на випадок, якщо користувач
+// введе в prompt щось інше. В такому випадку result має набувати значення:
+// "Вибачте, але ви маєте ввести значення від 1 до 4 включно".
+// Значення змінної result виведіть в консоль.
+
+const num = Number(prompt("Введіть цифру від 1 до 4"));
+
+function chooseSeason(number) {
+  let result = "";
+
+  switch (number) {
+    case 1:
+      result = "зима";
+      break;
+
+    case 2:
+      result = "весна";
+      break;
+
+    case 3:
+      result = "літо";
+      break;
+
+    case 4:
+      result = "осінь";
+      break;
+
+    default:
+      result = "Вибачте, але ви маєте ввести значення від 1 до 4 включно";
+  } return result;  
 }
-getQuarter(min);
+
+console.log(chooseSeason(num));
