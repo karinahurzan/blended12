@@ -1,5 +1,4 @@
-
-'use strict';
+"use strict";
 
 // Запропонуйте користувачу ввести число за допомогою prompt().
 // Збережіть введене значення у змінну number.
@@ -10,14 +9,36 @@
 // Підказка: prompt завжди повертає рядок (String), тому перед перевіркою
 // перетворіть значення на число за допомогою Number().
 
-
 function requestNumber() {
-    let number = prompt("Введіть число");
-    if (Number(number) === 10) {
-        return alert("Вірно");
-    } else {
-        return alert("Невірно");
-    }
+  let number = prompt("Введіть число");
+  if (Number(number) === 10) {
+    return alert("Вірно");
+  } else {
+    return alert("Невірно");
+  }
 }
 
-requestNumber();
+// requestNumber();
+
+// У змінній min лежить випадкове число від 0 до 59.
+// Визначте, в яку чверть години потрапляє
+// це число (у першу, другу, третю чи четверту).
+// Виведіть в alert відповідне повідомлення, наприклад:
+// "10 входить в першу чверть"
+
+const min = Number(prompt("Введіть число від 0 до 59"));
+
+function getQuarter(min) {
+  if (min >= 0 && min <= 14) {
+    alert(`${min} входить у першу чверть`);
+  } else if (min >= 15 && min <= 29) {
+    alert(`${min} входить у другу чверть`);
+  } else if (min >= 30 && min <= 44) {
+    alert(`${min} входить у третю чверть`);
+  } else if (min >= 45 && min <= 59) {
+    alert(`${min} входить у четверту чверть`);
+  } else {
+    alert("Ви ввели не вірне значення");
+  }
+}
+getQuarter(min);
