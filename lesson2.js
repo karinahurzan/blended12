@@ -49,3 +49,32 @@ function caclculateAverage(array) {
 }
 
 console.log(caclculateAverage(arr));
+
+
+//У нас є об'єкт, у якому зберігатимуться зарплати
+//нашої команди
+//Напишіть код для сумування всіх зарплат і
+//збережіть його результат у змінній sum.
+//Якщо об'єкт salaries порожній, то результат має бути 0
+
+const salaries = {
+  Mango: 300,
+  Ben: 100,
+  Poly: 160,
+  Ajax: 1470,
+  Bob: 450,
+};
+
+function sumSallaries(salaries) {
+    let sum = 0; 
+    const array = Object.values(salaries);
+    for (const salary of array) {
+        sum += salary;
+    }
+    return sum;
+}
+
+sumSallaries(salaries);
+
+console.log(sumSallaries(salaries));
+console.log(sumSallaries([]));
