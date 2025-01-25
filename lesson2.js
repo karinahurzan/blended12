@@ -29,3 +29,23 @@ function findLongestWord(string) {
   return longestWord;
 }
 console.log(findLongestWord(string));
+
+// Напишіть функцію caclculateAverage()
+// яка приймає довільну кількість
+// аргументів і повертає їхнє середнє значення.
+// Додати перевірку, що аргументи це числа.
+const arr = [2, 6, 24, 7, 35, 24, "hello", 9, "world"];
+
+function caclculateAverage(array) {
+  const newArr = [];
+  let sum = 0;
+  for (const item of array) {
+    if (typeof item === "number") {
+      newArr.push(item);
+      sum += item;
+    }
+  }
+  return sum / newArr.length;
+}
+
+console.log(caclculateAverage(arr));
