@@ -50,7 +50,6 @@ function caclculateAverage(array) {
 
 console.log(caclculateAverage(arr));
 
-
 //У нас є об'єкт, у якому зберігатимуться зарплати
 //нашої команди
 //Напишіть код для сумування всіх зарплат і
@@ -66,15 +65,44 @@ const salaries = {
 };
 
 function sumSallaries(salaries) {
-    let sum = 0; 
-    const array = Object.values(salaries);
-    for (const salary of array) {
-        sum += salary;
-    }
-    return sum;
+  let sum = 0;
+  const array = Object.values(salaries);
+  for (const salary of array) {
+    sum += salary;
+  }
+  return sum;
 }
 
 sumSallaries(salaries);
 
 console.log(sumSallaries(salaries));
 console.log(sumSallaries([]));
+
+// Напишіть функцію calcTotalPrice(fruits, fruitName),
+// яка приймає массив об'єктів (fruits) і рядок з назвою фрукта (fruitName).
+// Функція рахує і повертає загальну вартість фрукта
+// з таким ім'ям, ціною та кількістю з об'єкта.
+
+// Зверніть увагу, що в масиві може бути кілька обʼєктів з однаковою
+// назвою фрукта, це також треба урахувати.
+const fruits = [
+  { name: "Яблуко", price: 45, quantity: 7 },
+  { name: "Апельсин", price: 60, quantity: 4 },
+  { name: "Банан", price: 125, quantity: 8 },
+  { name: "Груша", price: 350, quantity: 2 },
+  { name: "Виноград", price: 440, quantity: 3 },
+  { name: "Банан", price: 125, quantity: 3 },
+];
+
+function calcTotalPrice(fruits, fruitName) {
+  let totalPrice = 0;
+
+  for (const item of fruits) {
+    if (item.name === fruitName) {
+      totalPrice += item.price * item.quantity;
+    }
+  }
+  return totalPrice;
+}
+
+console.log(calcTotalPrice(fruits, "Банан"));
