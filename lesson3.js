@@ -179,6 +179,74 @@ function makeDiscount(arrays, discount) {
   });
 }
 
-console.log(makeDiscount(fruits, 20));
-console.log(makeDiscount(fruits, 30));
-console.log(makeDiscount(fruits, 40));
+// console.log(makeDiscount(fruits, 20));
+// console.log(makeDiscount(fruits, 30));
+// console.log(makeDiscount(fruits, 40));
+
+
+//* 12. Напиши клас Notes який управляє колекцією нотаток у приватній властивості items.
+//Нотатка це об'єкт із властивостями id, text і priority
+//Додай класу статичну властивість Priority,
+//у якій зберігатиметься об'єкт із пріоритетами HIGHT, LOW.
+//Додай методи addNote(note), removeNote(id) updatePriority(id, newPriority) getNotes()
+
+class Notes {
+    #items;
+    static Priority = {
+        HIGHT: "hight",
+        LOW: "low",
+    };
+    constructor() {
+        this.#items = [];
+    }
+    addNote(note) {
+        this.#items.push(note);
+    }
+    removeNote(id) {
+        const index = this.#items.findIndex((item) => item.id === id);
+        if (index !== -1) {
+            this.#items.splice(index, 1);
+        }
+            // this.items = this.items.filter(note => note.id !== id); альтернативний варіант
+    }
+    updatePriority(id, newPriority) {
+        const note = this.#items.find((item) => item.id === id);
+        if(note) {
+            note.priority = newPriority;
+        }
+    }
+    getNotes() {
+        return this.#items;
+    }   
+}
+
+const note1 = new Notes();
+
+note1.addNote({ id: 1, text: "Note1", priority: Notes.Priority.LOW });
+note1.addNote({ id: 2, text: "Note2", priority: Notes.Priority.LOW });
+note1.addNote({ id: 3, text: "Note3", priority: Notes.Priority.HIGHT });
+
+// console.log(note1.getNotes());
+
+// note1.removeNote(2);
+
+// console.log(note1.getNotes());
+
+// note1.updatePriority(3, Notes.Priority.LOW);
+
+// console.log(note1.getNotes());
+
+
+
+
+//Повернути об'єкт у якому вказується кількість тегів
+
+const tweets = [
+    { id: "000", likes: 5, tags: ["js", "nodejs"] },
+    { id: "001", likes: 2, tags: ["html", "css"] },
+    { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+    { id: "003", likes: 8, tags: ["css", "react"] },
+    { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+  ];
+  
+  // { js: 3, nodejs: 3, html: 2, css: 2, react: 2 }
