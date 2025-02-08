@@ -94,14 +94,30 @@ function getUsersWithEyeColor(users, color) {
   return users.filter((user) => user.eyeColor === color);
 }
 
-console.log(getUsersWithEyeColor(users, "blue"));
+// console.log(getUsersWithEyeColor(users, "blue"));
 
 // Отримати масив імен користувачів за статтю (поле gender)
 // console.log(getUsersWithGender(users, 'male')); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
 
 function getUsersWithGender(users, gender) {
-  return users
-    .filter((user) => user.gender === gender)
-    .map((user) => user.name);
+  //   return users
+  //     .filter((user) => user.gender === gender)
+  //     .map((user) => user.name);
+  return users.reduce((acum, user) => {
+    if (user.gender === gender) {
+      acum.push(user.name);
+    }
+    return acum;
+  }, []);
 }
-console.log(getUsersWithGender(users, "male"));
+
+// console.log(getUsersWithGender(users, "male"));
+
+// Отримати загальну суму балансу (поле balance) всіх користувачів.
+// console.log(calculateTotalBalance(users)); // 20916
+
+function calculateTotalBalance(users) {
+  return users.reduce((acum, user) => (acum += user.balance), 0);
+}
+
+// console.log(calculateTotalBalance(users));
