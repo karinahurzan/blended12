@@ -91,7 +91,17 @@ const users = [
 // console.log(getUsersWithEyeColor(users, 'blue')); // [об'єкт Moore Hensley, об'єкт Sharlene Bush, об'єкт Carey Barr]
 
 function getUsersWithEyeColor(users, color) {
-    return users.filter(user => user.eyeColor === color);
+  return users.filter((user) => user.eyeColor === color);
 }
 
-console.log(getUsersWithEyeColor(users, 'blue'));
+console.log(getUsersWithEyeColor(users, "blue"));
+
+// Отримати масив імен користувачів за статтю (поле gender)
+// console.log(getUsersWithGender(users, 'male')); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
+
+function getUsersWithGender(users, gender) {
+  return users
+    .filter((user) => user.gender === gender)
+    .map((user) => user.name);
+}
+console.log(getUsersWithGender(users, "male"));
