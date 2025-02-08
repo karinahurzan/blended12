@@ -150,3 +150,35 @@ function getSorted(users) {
 }
 
 // console.log(getSorted(users));
+
+//Призначити знижку 20% на фрукти в масиві,
+//Присвоїти ID для кожного продукту
+
+// let id = 0
+
+const fruits = [
+  { name: "apple", price: 200 },
+  { name: "orange", price: 300 },
+  { name: "grapes", price: 750 },
+];
+
+// const result = fruits.map((fruit) => {
+//   fruit.price *= 0.8;
+//   fruit.id = id;
+//   id += 1;
+//   return fruit;
+// });
+
+function makeDiscount(arrays, discount) {
+  return arrays.map((fruit, index) => {
+    //   fruit.price *= (100 - discount) * 0.01;
+    // fruit.price *= (100 - discount) / 100;
+    const discountedFruit = (fruit.price * (100 - discount)) / 100;
+    // fruit.id = index + 1;
+    return { ...fruit, price: discountedFruit, id: index + 1 };
+  });
+}
+
+console.log(makeDiscount(fruits, 20));
+console.log(makeDiscount(fruits, 30));
+console.log(makeDiscount(fruits, 40));
