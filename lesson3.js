@@ -122,18 +122,31 @@ function calculateTotalBalance(users) {
 
 // console.log(calculateTotalBalance(users));
 
-
-
 // Отримати масив всіх умінь всіх користувачів (поле skills), при цьому не повинно бути
 // Уміння, що повторюються, і вони повинні бути відсортовані в алфавітному порядку.
 // console.log(getSortedUniqueSkills(users));
 // ['adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit' , 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam']
 
 function getSortedUniqueSkills(users) {
-    return users
+  return users
     .flatMap((user) => user.skills)
     .filter((skill, i, arr) => arr.indexOf(skill) === i)
     .toSorted((a, b) => a.localeCompare(b));
 }
 
 // console.log(getSortedUniqueSkills(users));
+
+function getSorted(users) {
+  return users
+    .reduce((acum, user) => {
+      for (const i of user.skills) {
+        if (!acum.includes(i)) {
+          acum.push(i);
+        }
+      }
+      return acum;
+    }, [])
+    .toSorted();
+}
+
+// console.log(getSorted(users));
