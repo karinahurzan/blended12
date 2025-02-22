@@ -18,3 +18,24 @@ function switchInput() {
   leftInput.value = rightInput.value;
   rightInput.value = rightInputValue;
 }
+
+/*
+Завдання 3
+Кнопка "Приховати" ховає текст і замінює назву кнопки на
+"Розкрити", при повторному натисканні текст знову стає доступним
+і кнопка набуває початкового вигляду.
+*/
+
+const passwordInput = document.querySelector("#passwordInput");
+const passwordButton = document.querySelector("#passwordButton");
+
+passwordButton.addEventListener("click", (event) => {
+    const passwordInputValue = passwordInput.value;
+    passwordInput.type = "password";
+    if (passwordButton.textContent === "Приховати") {
+        passwordInput.type = "text";
+        return passwordButton.textContent = "Розкрити";
+    } else {
+        passwordButton.textContent = "Приховати"
+    }
+});
