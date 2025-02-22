@@ -38,3 +38,24 @@ passwordButton.addEventListener("click", (event) => {
     passwordButton.textContent = "Розкрити";
   }
 });
+/* Завдання 4 Кнопка "Зменшити" робить квадрат менше на 10 пікселів, допопка "Збільшити" - більше на 10 пікселів.
+ https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle 
+*/
+
+const decreaseBtn = document.querySelector("#decrease");
+const increaseBtn = document.querySelector("#increase");
+const box = document.querySelector("#box");
+
+increaseBtn.addEventListener("click", () => {
+  const currentHeight = Number.parseInt(getComputedStyle(box).height);
+  const currentWidth = Number.parseInt(getComputedStyle(box).width);
+  box.style.height = currentHeight + 10 + "px";
+  box.style.width = currentWidth + 10 + "px";
+});
+
+decreaseBtn.addEventListener("click", () => {
+  const currentHeight = Number.parseInt(getComputedStyle(box).height);
+  const currentWidth = Number.parseInt(getComputedStyle(box).width);
+  box.style.height = currentHeight - 10 + "px";
+  box.style.width = currentWidth - 10 + "px";
+});
