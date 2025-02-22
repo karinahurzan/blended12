@@ -30,12 +30,11 @@ const passwordInput = document.querySelector("#passwordInput");
 const passwordButton = document.querySelector("#passwordButton");
 
 passwordButton.addEventListener("click", (event) => {
-    const passwordInputValue = passwordInput.value;
+  if (passwordButton.textContent === "Розкрити") {
+    passwordInput.type = "text";
+    return (passwordButton.textContent = "Приховати");
+  } else {
     passwordInput.type = "password";
-    if (passwordButton.textContent === "Приховати") {
-        passwordInput.type = "text";
-        return passwordButton.textContent = "Розкрити";
-    } else {
-        passwordButton.textContent = "Приховати"
-    }
+    passwordButton.textContent = "Розкрити";
+  }
 });
