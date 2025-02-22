@@ -59,3 +59,28 @@ decreaseBtn.addEventListener("click", () => {
   box.style.height = currentHeight - 10 + "px";
   box.style.width = currentWidth - 10 + "px";
 });
+
+// Завдання 7
+// При натисканні на коло він повинен слідувати за курсором.
+// При повторному натисканні він стає в початкове положення.
+
+const circle = document.querySelector(".outerCircle");
+let flag = false;
+
+circle.addEventListener("click", (event) => {
+  if (!flag) {
+    window.addEventListener("mousemove", mouseMove);
+    circle.style.position = "absolute";
+
+    flag = true;
+  } else {
+    window.removeEventListener("mousemove", mouseMove);
+    flag = false;
+    circle.style.position = "static";
+  }
+});
+
+function mouseMove(event) {
+  circle.style.left = event.pageX - 20;
+  circle.style.top = event.pageY - 20;
+}
