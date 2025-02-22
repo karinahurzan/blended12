@@ -84,3 +84,18 @@ function mouseMove(event) {
   circle.style.left = event.pageX - 20;
   circle.style.top = event.pageY - 20;
 }
+
+/*
+Завдання 6
+Натиснувши кнопку "Подвоювати", збільшити значення
+у кожному елементі списку у 2 рази
+*/
+
+const btnDouble = document.querySelector("#double");
+const listItems = document.querySelectorAll(".listItem");
+console.log(listItems);
+btnDouble.addEventListener("click", doubleValue);
+
+function doubleValue() {
+listItems.forEach(el => el.textContent = Number(el.textContent)*2)
+ }
